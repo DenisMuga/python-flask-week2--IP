@@ -23,6 +23,18 @@ def index():
     url = []
     
     
+    #Creating a for loop to fetch articles' contents
+    
+    for i in range(len(t_articles)):
+        main_article = t_articles[i]
+        
+        #Appending contents into each list
+        news.append(main_article['title'])
+        desc.append(main_article['description'])
+        img.append(main_article['urlToImage'])
+        p_date.append(main_article['publishedAt'])
+        url.append(main_article['url'])
+    
     return render_template('index.html')
 
 if __name__ == '__main__':
