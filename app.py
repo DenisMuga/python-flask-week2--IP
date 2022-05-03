@@ -1,3 +1,4 @@
+from certifi import contents
 from flask import Flask, render_template
 
 from newsapi import NewsApiClient
@@ -34,8 +35,11 @@ def index():
         img.append(main_article['urlToImage'])
         p_date.append(main_article['publishedAt'])
         url.append(main_article['url'])
+        
+        #Making a zip to find contents 
+        contents = zip(news,desc,img,p_date,url)
     
-    return render_template('index.html')
+    return render_template('index.html', contents=contents)
 
 if __name__ == '__main__':
     app.run(debug=True)
