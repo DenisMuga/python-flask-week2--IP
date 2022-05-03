@@ -15,6 +15,14 @@ def index():
     
     t_articles = top_headlines['articles'] #Fetching all articles of top headlines
     
+    #A list of contents to store the values on the list 
+    news = []
+    desc = []
+    img = []
+    p_date = []
+    url = []
+    
+    
     return render_template('index.html')
 
 if __name__ == '__main__':
