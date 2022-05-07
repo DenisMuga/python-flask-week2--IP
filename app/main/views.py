@@ -7,10 +7,10 @@ def HomePage():
     """
     Views thats renders news sources to users through the browser
     """
-    general_news = get_sources('general')
-    business_news = get_sources("business")
-    sports_news = get_sources("sports")
-    return render_template('sources.html',general=general_news,business=business_news,sports=sports_news )
+    # general_news = get_sources('general')
+    # business_news = get_sources("business")
+    sports_news = get_sources()
+    return render_template('sources.html',sports=sports_news )
 
 
 @main.route('/articles/<id>')

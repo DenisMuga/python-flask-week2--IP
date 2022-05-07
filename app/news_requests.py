@@ -10,18 +10,17 @@ art_url = None
 def configure_request(app):
     global api_key,s_url,art_url
     api_key = app.config['API_KEY']
-    articles_url = app.config['SOURCE_ARTICLES_URL']
-    s_url = app.config['NEWS_API_BASE_URL']
-    art_url = app.config['NEWS_ARTICLES_APL_URL']
+    # articles_url = app.config['SOURCE_ARTICLES_URL']
+    # s_url = app.config['NEWS_API_BASE_URL']
+    # art_url = app.config['NEWS_ARTICLES_APL_URL']
     
 
-def get_sources(category):
+def get_sources():
     """
     function that gets response from the api call
     """    
-    sources_url = s_url.format(category,api_key)
-
-    with urllib.request.urlopen(sources_url) as url:
+    source_url= 'https://newsapi.org/v2/sources?country=&apiKey=1f06391ab2df4b129f263c5fc5ee6f03'
+    with urllib.request.urlopen(source_url) as url:
         sources_data = url.read()
         response = json.loads(sources_data)
 
@@ -44,7 +43,8 @@ def process_new_sources(sources_list):
         language = one_source.get("language")
         country = one_source.get("country")
         
-        new_source = Sources(id,name,description,url,category,language,country)
+        if language == 'en':
+            new_source = Sources(id,name,description,url,category,language,country)
         sources_outcome.append(new_source)
     
     return sources_outcome
@@ -80,8 +80,8 @@ def process_new_articles(articles_list):
     
     return articles_outcome
 
-def articles_source(source):
-    sources_a_url = 'https://newsapi.org/v2/everything?sources={}&apiKey={}'.format(source,api_key)
+def articles_source():
+    sources_a_url = 'https://newsapi.org/v2/everything?&apiKey=1f06391ab2df4b129f263c5fc5ee6f03'
 
     with urllib.request.urlopen(sources_a_url) as url:
         art_data = url.read()
