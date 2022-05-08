@@ -5,7 +5,7 @@ from ..news_requests import get_sources,get_articles,search_articles,articles_so
 @main.route('/')
 def HomePage():
     """
-    Views thats renders news sources to users through the browser
+    Views thats render news sources through the browsers to users
     """
     # general_news = get_sources('general')
     # business_news = get_sources("business")
@@ -24,7 +24,7 @@ def sourceArticles(id):
 @main.route('/News-Articles')
 def NewsArticles():
     """
-    View that would fetches  news articles
+    View that fetches  news articles
      
     """
     health_articles = get_articles('health')
