@@ -10,7 +10,7 @@ People who want to consume realtime news without watching TV can use this applic
 
 ## Live Demo
 
-Click [Link](https://news-app.herokuapp.com/) to visit the site
+Click [Link](https://muganews-app222.herokuapp.com/) to visit the site
 
 ## User Story
 
